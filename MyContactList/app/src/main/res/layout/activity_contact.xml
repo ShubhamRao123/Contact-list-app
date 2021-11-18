@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/toolbar_background">
+
+        <ToggleButton
+            android:id="@+id/toggleButtonEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/togglebutton" />
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="@string/save" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/navbar"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textContact"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"/>
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="14"
+                android:inputType="textCapWords"
+                android:imeOptions="actionNext"
+                android:layout_below="@+id/textContact"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp">
+                <requestFocus/>
+
+            </EditText>
+
+            <TextView
+                android:id="@+id/textAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textAddress"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/editName"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/editAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="14"
+                android:inputType="textPostalAddress"
+                android:imeOptions="actionNext"
+                android:layout_below="@+id/textAddress"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp" />
+
+            <EditText
+                android:id="@+id/editCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="8"
+                android:inputType="textCapWords"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@+id/editState"
+                android:layout_below="@+id/editAddress"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"/>
+
+            <EditText
+                android:id="@+id/editState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:nextFocusDown="@+id/editZipcode"
+                android:inputType="textCapCharacters"
+                android:layout_toRightOf="@+id/editCity"
+                android:layout_alignBottom="@+id/editCity"
+                android:imeOptions="actionNext" />
+
+            <EditText
+                android:id="@+id/editZipcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:maxLength="6"
+                android:inputType="numberSigned"
+                android:layout_alignBottom="@+id/editState"
+                android:layout_toRightOf="@+id/editState"
+                android:nextFocusDown="@+id/editHome"
+                android:imeOptions="actionNext" />
+
+            <TextView
+                android:id="@+id/textHome"
+                android:text="@string/home_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/editCity"/>
+
+            <EditText
+                android:id="@+id/editHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/textHome"
+                android:ems="7"
+                android:maxLength="14"
+                android:nextFocusDown="@+id/editCell"
+                android:inputType="phone"
+                android:imeOptions="actionNext"/>
+
+            <TextView
+                android:id="@+id/textCell"
+                android:text="@string/cell_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textHome"
+                android:layout_alignLeft="@+id/editCell"/>
+
+            <EditText
+                android:id="@+id/editCell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/editHome"
+                android:layout_alignBottom="@+id/editHome"
+                android:ems="7"
+                android:maxLength="14"
+                android:nextFocusDown="@+id/editEmail"
+                android:inputType="phone"
+                android:imeOptions="actionNext"/>
+
+            <TextView
+                android:id="@+id/textEmail"
+                android:text="@string/email_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/editHome"
+                />
+
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+
+                android:layout_below="@+id/textEmail"
+                android:ems="13"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textBday"
+                android:text="@string/birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/editEmail"
+                android:paddingBottom="25dp"/>
+
+            <TextView
+                android:id="@+id/textBirthday"
+                android:text="@string/birthdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/textBday"
+                android:layout_alignBottom="@+id/textBday"
+                android:paddingBottom="25dp"/>
+
+            <Button
+                android:id="@+id/btnBirthday"
+                android:text="@string/change_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_alignBaseline="@+id/textBirthday"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/navbar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/navbar_background"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:id="@+id/imageButtonList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/imageButtonMap"
+            android:layout_marginRight="20dp"
+            android:contentDescription="A button for Contact List"
+            android:src="@drawable/contact_list_icon"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/contact_map_icon"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/imageButtonMap"
+            android:src="@drawable/contact_settings_icon"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
